@@ -1,0 +1,58 @@
+speakers:
+  - fullName: Matt Stine
+    title: Cloud Native Polymath and Product Owner
+    twitter: mstine
+    linkedIn: mattstine
+    bio: http://www.mattstine.com/
+    headshot: http://www.mattstine.com/img/matt_stine_pr.jpg
+    events:
+      - name: No Fluff Just Stuff
+        publish: false
+        url: https://nofluffjuststuff.com/conference/minneapolis/2017/03/home
+        city: Minneapolis, MN
+        date: 03032017
+        topics:
+          - Spring
+          - Cloud
+          - DevOps
+          - Microservices
+      - name: No Fluff Just Stuff
+        publish: false
+        url: https://nofluffjuststuff.com/conference/boston/2017/03/home
+        city: Boston, MA
+        date: 03172017
+        topics:
+          - Spring
+          - Cloud
+          - DevOps
+          - Microservices
+      - name: DevNexus
+        publish: false
+        url: https://devnexus.com/
+        city: Atlanta, GA
+        date: 02222017
+        topics:
+          - Spring
+          - Cloud
+          - DevOps
+          - Microservices
+      - name: O'Reilly Software Architecture Conference
+        publish: false
+        url: http://conferences.oreilly.com/software-architecture/sa-ny
+        city: New York, NY
+        date: 04032017
+        topics:
+          - Spring
+          - Cloud
+          - DevOps
+          - Microservices
+      - name: Devoxx Poland
+        publish: false
+        url: http://devoxx.pl/
+        city: Krakow, Poland
+        date: 06212017
+        topics:
+          - Spring
+          - Cloud
+          - DevOps
+          - Microservices
