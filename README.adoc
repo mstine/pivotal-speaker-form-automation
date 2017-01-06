@@ -1,0 +1,61 @@
+= Fill Out the Pivotal Speaker Form!
+
+This Groovy script uses http://www.gebish.org/[Geb] to automate the Chrome browser to fill out the Pivotal speaker form from the contents of a YAML file. It speeds up the process a bit by not forcing you to paste redundant fields for every event at which you speak. It is also capable of managing events for multiple speakers, so if you have a single person that's managing multiple schedules, you're in luck.
+
+== Dependencies
+
+* You need Java and Groovy installed on your box. e.g. this should work:
++
+----
+$ groovy -v
+Groovy Version: 2.4.7 JVM: 1.8.0_102 Vendor: Oracle Corporation OS: Mac OS X
+----
+
+* You need to install https://sites.google.com/a/chromium.org/chromedriver/[ChromeDriver] for your OS in some known location.
+
+* You need to have set up https://sites.google.com/a/pivotal.io/pivotal-it/work-applications/pivotal-single-sign-on/multi-factor-authentication#TOC-Okta-Verify-with-Push[Okta Push] for MFA.
+
+== Usage
+
+Before running the script, populate lines 41 and 42:
+
+----
+$("form").username() << "username"
+$("form").password() << "********"
+----
+
+...with your actual Okta username and password. A future enhancement will collect these interactively.
+
+----
+$ groovy -Dwebdriver.chrome.driver=/PATH_TO/chromedriver fillSpeakerForm.groovy YAML_FILE
+----
+
+== YAML Format
+
+There's a sample YAML file in `speaker_data.yml`.
+
+----
+speakers:
+  - fullName: Your Name
+    title: Your Title
+    twitter: Your Twitter Handle // <1>
+    linkedIn: Your LinkedIn profile // <2>
+    bio: The URL to your bio, or the bio itself
+    headshot: The URL to your headshot
+    events:
+      - name: The name of the event
+        publish: (true|false) // <3>
+        url: The URL to the event
+        city: The location of the event
+        date: MMDDYYYY // <4>
+        topics: // <5>
+          - Spring
+          - Cloud
+          - DevOps
+          - Microservices
+----
+<1> Omit the `@` from your handle.
+<2> Use the last portion of your public profile URL (e.g.  for https://www.linkedin.com/in/mattstine, use `mattstine`)
+<3> If `true`, the form will be filled out for this event. If `false`, it will be skipped. If you want to use the same file for all of your events, remember to set events to `false` for future submissions if you don't want to create duplicates.
+<4> Omit the `/` separating the parts of the date.
+<5> `topics` is a list of the labels next to the checkboxes in the *_Topic Expertise_* section. A current limitation is that the script doesn't allow for submitting *_Other_* as a topic.
